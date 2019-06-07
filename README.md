@@ -5,8 +5,8 @@ This is a javascript file that runs in node to help numerically sort pluralsight
 check [Here](https://gist.github.com/jesperorb/c14aef85735c54f479896cfa6f16a1e5) for a walkthrough on downloading PluralSight Tutorials using [Youtube-dl](https://github.com/ytdl-org/youtube-dl).
 
 # How to use script
-This assumes you have at least v6.17.1 of [Nodejs](https://nodejs.org/en/)
-WORKS ON LINUX, MAC AND WINDOWS
+This assumes you have at least v6.17.1 of [Nodejs](https://nodejs.org/en/).
+WORKS ON LINUX, MAC AND WINDOWS.
 Simply Place the script in the same directory as your downloaded videos and open your terminal window there.
 
 type ```node script``` and your folders will be sorted.
