@@ -2,6 +2,7 @@ const path = require('path');
 const fs = require('fs');
 
 fs.readdir(__dirname, (err, files) => {
+    console.log('Sorting Files into folders...')
     const chaps = [];
     files.forEach(file => {
         const arr = file.match(/[a-zA-z][\d]-[\d][\d]/g);
@@ -26,4 +27,5 @@ fs.readdir(__dirname, (err, files) => {
             })
         }
     }
+    console.log("Files Sorted!!!")
 })
