@@ -20,7 +20,7 @@ fs.readdir(__dirname, (err, files) => {
             files.forEach(file => {
                 const arr = file.match(regex);
                 if (arr) {
-                    fs.rename(path.join(__dirname, arr.input), path.join(__dirname,'m'+(i), arr[0].split('-')[1]+'-'+file), error => {
+                    fs.rename(path.join(__dirname, arr.input), path.join(__dirname,'m'+(i), file.substring(0,2) === arr[0].split('-')[1]? ''+file : arr[0].split('-')[1]+'-'+file ), error => {
                         if(error) throw err;
                     })
                 }
