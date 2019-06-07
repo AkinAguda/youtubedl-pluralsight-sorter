@@ -11,15 +11,15 @@ fs.readdir(__dirname, (err, files) => {
     })
     chaps.sort();
     for (i = 1; i <= chaps[chaps.length - 1]; i++) {
-        if (fs.existsSync(__dirname+'/m'+i)) {
+        if (fs.existsSync(path.join(__dirname, 'm'+i))) {
             continue;
         }else {
-            fs.mkdirSync(__dirname+'/m'+i)
+            fs.mkdirSync(path.join(__dirname, 'm'+i))
             const regex = new RegExp('m'+(i)+'-[0-9][0-9]');
             files.forEach(file => {
                 const arr = file.match(regex);
                 if (arr) {
-                    fs.rename(__dirname+'/'+arr.input, __dirname+'/m'+(i)+'/'+arr[0].split('-')[1]+'-'+file, error => {
+                    fs.rename(path.join(__dirname, arr.input), path.join(__dirname,'m'+(i), arr[0].split('-')[1]+'-'+file), error => {
                         if(error) throw err;
                     })
                 }
