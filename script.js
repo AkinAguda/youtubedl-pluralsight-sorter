@@ -10,7 +10,7 @@ fs.readdir(__dirname, (err, files) => {
         }
     })
     chaps.sort();
-    for (i = 1; i <= chaps[chaps.length - 1]; i++) {
+    for (i = chaps[0]; i <= chaps[chaps.length - 1]; i++) {
         if (fs.existsSync(path.join(__dirname, 'm'+i))) {
             continue;
         }else {
