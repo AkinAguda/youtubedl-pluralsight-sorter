@@ -5,7 +5,7 @@ fs.readdir(__dirname, (err, files) => {
     console.log('Sorting Files into folders...')
     const chaps = [];
     files.forEach(file => {
-        const arr = file.match(/[a-zA-z][\d]-[\d][\d]/g);
+        const arr = file.match(/[a-zA-Z][\d]-[\d]{2}/g);
         if (arr !== null) {
             chaps.push(arr[0].split('-')[0].split('')[1])
         }
@@ -16,7 +16,7 @@ fs.readdir(__dirname, (err, files) => {
             continue;
         }else {
             fs.mkdirSync(path.join(__dirname, 'm'+i))
-            const regex = new RegExp('m'+(i)+'-[0-9][0-9]');
+            const regex = new RegExp('m'+(i)+'-[0-9]{2}');
             files.forEach(file => {
                 const arr = file.match(regex);
                 if (arr) {
