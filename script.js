@@ -5,7 +5,7 @@ fs.readdir(__dirname, (err, files) => {
   console.log("Sorting Files into folders...");
   const chaps = [];
   files.forEach(file => {
-    const arr = file.match(/[a-zA-Z][\d]*-[\d]*/g);
+    const arr = file.match(/m[\d]*-[\d]*/g);
     if (arr !== null) {
       chaps.push(arr[0].split("-")[0].slice(1));
     }
