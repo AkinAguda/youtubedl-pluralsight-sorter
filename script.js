@@ -60,7 +60,8 @@ newSort = () => {
         path.join(__dirname, fn),
         path.join(
           __dirname,
-          index + " " + fn.replace(/[-][0-91-zA-Z]{8}(.*)(?=.mp4)/, "")
+          (fn[0] != index ? index + " " : "") +
+            fn.replace(/[-][0-91-zA-Z]{8}(.*)(?=.mp4)/, "")
         )
       );
     });
