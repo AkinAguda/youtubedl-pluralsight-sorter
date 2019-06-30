@@ -14,7 +14,25 @@ fs.readdir(__dirname, (err, files) => {
     }
   });
   if (nullCount === files.length) {
-    newSort();
+    fs.readdir(__dirname, (err, file) => {
+      file.sort((a, b) => {
+        const ta = fs.statSync(path.join(__dirname, a));
+        const tb = fs.statSync(path.join(__dirname, b));
+        return ta.birthtimeMs - tb.birthtimeMs;
+      });
+      file.forEach((fn, index) => {
+        if (fn === "script.js") return;
+        fs.renameSync(
+          path.join(__dirname, fn),
+          path.join(
+            __dirname,
+            (fn[0] != index ? index + " " : "") +
+              fn.replace(/[-][0-91-zA-Z]{8}(.*)(?=.mp4)/, "")
+          )
+        );
+      });
+    });
+    console.log("Files Sorted!!!");
     nullCount = 0;
   } else {
     chaps.sort();
@@ -44,24 +62,3 @@ fs.readdir(__dirname, (err, files) => {
     console.log("Files Sorted!!!");
   }
 });
-newSort = () => {
-  fs.readdir(__dirname, (err, file) => {
-    file.sort((a, b) => {
-      const ta = fs.statSync(path.join(__dirname, a));
-      const tb = fs.statSync(path.join(__dirname, b));
-      return ta.birthtimeMs - tb.birthtimeMs;
-    });
-    file.forEach((fn, index) => {
-      if (fn === "script.js") return;
-      fs.renameSync(
-        path.join(__dirname, fn),
-        path.join(
-          __dirname,
-          (fn[0] != index ? index + " " : "") +
-            fn.replace(/[-][0-91-zA-Z]{8}(.*)(?=.mp4)/, "")
-        )
-      );
-    });
-  });
-  console.log("Files Sorted!!!");
-};
