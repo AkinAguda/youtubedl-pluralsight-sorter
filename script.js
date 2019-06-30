@@ -7,7 +7,7 @@ fs.readdir(__dirname, (err, files) => {
   let nullCount = 0;
   files.forEach(file => {
     const arr = file.match(/m[\d]*-[\d]*/g);
-    if (arr !== null) {
+    if (arr !== null && arr[0].split("-")[0].slice(1) !== "") {
       chaps.push(arr[0].split("-")[0].slice(1));
     } else {
       nullCount++;
@@ -27,7 +27,7 @@ fs.readdir(__dirname, (err, files) => {
         files.forEach(file => {
           const arr = file.match(regex);
           if (arr) {
-            fs.rename(
+            fs.renameSync(
               path.join(__dirname, arr.input),
               path.join(
                 __dirname,
@@ -35,10 +35,7 @@ fs.readdir(__dirname, (err, files) => {
                 file.substring(0, 2) === arr[0].split("-")[1]
                   ? "" + file
                   : arr[0].split("-")[1] + "-" + file
-              ),
-              error => {
-                if (error) throw err;
-              }
+              )
             );
           }
         });
