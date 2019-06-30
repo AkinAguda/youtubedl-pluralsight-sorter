@@ -11,5 +11,7 @@ WORKS ON LINUX, MAC AND WINDOWS.
 Simply Place the script in the same directory as your downloaded videos and open your terminal window there.
 
 type `node script` and your folders will be sorted.
-**DEPENDING ON HOW OLD THE TUTORIAL IS THAT YOU ARE DOWNLOADING, THE FILES MIGHT NOT BE SORTED INTO FOLDERS. NEWER TUTORIALS WILL JUST BE NUMBERED IN ASCENDING ORDER**
+
+**DEPENDING ON HOW OLD THE TUTORIAL IS THAT YOU ARE DOWNLOADING, THE FILES MIGHT NOT BE SORTED INTO FOLDERS. NEWER TUTORIALS WILL JUST BE NUMBERED IN ASCENDING ORDER.**
+
 If its an older tutorial, each folder will be named like **m1** or **m2** and so on. Each folder contains the video files arranged in ascending order.
