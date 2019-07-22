@@ -6,7 +6,7 @@ fs.readdir(__dirname, (err, files) => {
   const chaps = [];
   let nullCount = 0;
   files.forEach(file => {
-    const arr = file.match(/m[\d]*-[\d]*/g);
+    const arr = file.match(/m[\d]*-[\d]*.mp4$/g);
     if (arr !== null && arr[0].split("-")[0].slice(1) !== "") {
       chaps.push(arr[0].split("-")[0].slice(1));
     } else {
